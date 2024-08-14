@@ -52,10 +52,49 @@ Para deixar a atividade um pouco mais interessante, resolvi adicionar algumas co
 | yarn knex -- migrate:latest                | Lê todas as _migrations_ e executa                |
 | yarn knex -- migrate:rollback              | Desfaz a migration anterior                       |
 
-## Modelo Entidade Relacionamento
+## Definição de Entidades
+
+**Modelo Entidade Relacionamento (MER)**
+
+```mermaid
+erDiagram
+  users ||--o{ meals : have
+  users }
+```
+
+**Definição das Entidades em DBML**
+
+```dbml
+Table users {
+  id integer [primary key]
+  code uuid
+  name text
+  email text
+  hash text
+  created_at datetime
+  updated_at datetime
+}
+
+Table meals {
+  id integer [primary key]
+  user_id integer
+  name text
+  description text
+  date datetime
+  diet bool
+  created_at datetime
+  updated_at datetime
+}
+
+Ref: meals.user_id > users.id
+```
+
+![mer](.github/imgs/mer.png)
+Gerado por [dbdiagram.io](https://dbdiagram.io/)
 
 ## Referências
 
 - [Descrição Desafio](https://efficient-sloth-d85.notion.site/Desafio-02-be7cdb37aaf74ba898bc6336427fa410)
 - [Autenticação JWT](https://medium.com/@atatijr/token-based-authentication-with-fastify-jwt-and-typescript-1fa5cccc63c5)
 - [Docs Knex](https://knexjs.org/guide/#node-js)
+- [DBML](https://foliant-docs.github.io/docs/tutorials/db/dbml/)
