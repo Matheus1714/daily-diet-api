@@ -44,6 +44,41 @@ Para deixar a atividade um pouco mais interessante, resolvi adicionar algumas co
 - [x] Aplicação deve se previnir de ataque via _SQL Injection_
 - [x] Usuário não pode acessar refeições ou informações sem antes passar por uma autenticação
 
+## Execução do Projeto
+
+Antes de iniciar o projeto, configure as variáveis ambientes. Basta copiar os arquivos `.env.example` e `.env.test.example`. Eles definem instâncias de desenvolvimento e produção.
+
+```shell
+NODE_ENV=... # development | test | production
+
+DATABASE_CLIENT=... # sqlite | pg
+DATABASE_URL=... # Local: Caminho do arquivo .db  | Remote: String de conexão
+
+AUTH_SECRET=...
+SALT_ROUNDS=...
+COOKIE_SECRET=...
+```
+
+Foi considerado que para `production` seria usado `pg` e testes locais com `sqlite`, com isso, se atente as configurações de ambiete.
+
+Após as variáveis configuradas, instale os pacotes com `yarn` e faça as migrations no banco de dados com o comando `yarn knex -- migrate:latest`.
+
+Por fim, execute para testes locais
+
+```
+yarn dev
+```
+
+Para mais comandos, consulte a tabela abaixo:
+
+| Comando    | Descrição                                          |
+| ---------- | -------------------------------------------------- |
+| yarn dev   | Executa o projeto em ambiente local                |
+| yarn knex  | Executa o `knex` e comandos válidos junto com `--` |
+| yarn lint  | Executa uma checagem de `lint` no projeto          |
+| yarn build | Transforma o código TS para JS em `/build`         |
+| yarn test  | Executa os testes existentes no projeto            |
+
 ## Comandos do Knex
 
 | Comando                                    | Descrição                                         |
