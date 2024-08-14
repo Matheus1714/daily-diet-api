@@ -18,6 +18,8 @@ export const signInSchema = z.object({
   password: z.string().min(6),
 });
 
+export type SignInUserBody = z.infer<typeof signInSchema>;
+
 export const signinResponseSchema = z.object({
   accessToken: z.string(),
 });
