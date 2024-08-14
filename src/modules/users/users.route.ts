@@ -1,23 +1,16 @@
-import {
-  FastifyInstance,
-  FastifyRequest,
-  FastifyReply,
-  HookHandlerDoneFunction,
-} from "fastify";
+import { FastifyInstance, FastifyRequest, FastifyReply } from "fastify";
 import {
   createUserSchema,
   signinResponseSchema,
   signInSchema,
 } from "./users.schema";
+import { createUserController } from "./users.controller";
 
 export async function usersRoutes(app: FastifyInstance) {
-  app.post("/", (req: FastifyRequest, reply: FastifyReply) => {
-    try {
-      const body = createUserSchema.parse(req.body);
-      reply.status(201).send();
-    } catch (error) {
-      reply.status(400).send({ error: error });
-    }
+  app.post("/", createUserController);
+
+  app.get("/", (req: FastifyRequest, reply: FastifyReply) => {
+    reply.send({ message: "teste" });
   });
 
   //   app.post(
@@ -34,10 +27,6 @@ export async function usersRoutes(app: FastifyInstance) {
   //       reply.send({ accessToken: "test" });
   //     }
   //   );
-
-  app.get("/", (req: FastifyRequest, reply: FastifyReply) => {
-    reply.send({ message: "teste" });
-  });
 
   app.delete("/signout", () => {});
 }

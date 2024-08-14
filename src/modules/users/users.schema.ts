@@ -6,6 +6,8 @@ export const createUserSchema = z.object({
   password: z.string().min(6),
 });
 
+export type CreateUserBody = z.infer<typeof createUserSchema>;
+
 export const signInSchema = z.object({
   email: z
     .string({
