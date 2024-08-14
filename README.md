@@ -47,6 +47,7 @@ Para deixar a atividade um pouco mais interessante, resolvi adicionar algumas co
 - [x] Antes do usuário fazer qualquer operação nas refeições, será necessário fazer o auth em `POST /users/signin`
 - [x] Depois que o usuário tiver autenticado, será criado um token de acesso (_access\_\_token_) armazenado em um cookie
 - [x] O logout irá apenas apagar o _access\_\_token_
+- [ ] Fazer testes `end-to-end` da aplicação
 
 ### Não Funcionais
 
