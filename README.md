@@ -12,21 +12,21 @@ Esta API tem por objetivo fazer o gerenciamento de dieta de um usuário.
   - Rota `POST /users` com `nome`, `email` e `senha`
 - [x] Deve ser possível identificar o usuário entre as requisições
   - Ao criar um usuário, é possível realizar a identificação por um cookie `userId` ou um token de acesso
-- [ ] Deve ser possível registrar uma refeição feita, com as seguintes informações:
+- [x] Deve ser possível registrar uma refeição feita, com as seguintes informações:
   - Rota `POST /meals` com `nome`, `descrição`, `data (yyyy-mm-dd)` e `hora (mm:ss)`, no qual o campo `dieta` deve ser opcional, se enviado como `true`, então refeição está dentro da dieta
   - No modelo entidade e relacionamento, um `Usuário` pode ter muitas `Dietas` (`1-n`)
-- [ ] Deve ser possível editar uma refeição, podendo alterar todos os dados acima
+- [x] Deve ser possível editar uma refeição, podendo alterar todos os dados acima
   - Rota `PUT /meals`, alterando os campos `nome`, `descrição` e `dieta`
-- [ ] Deve ser possível apagar uma refeição
+- [x] Deve ser possível apagar uma refeição
   - Rota `DELETE /meals/:id`
-- [ ] Deve ser possível listar todas as refeições de um usuário
+- [x] Deve ser possível listar todas as refeições de um usuário
   - As refeições podem ser listadas usando o id do usuário na seção
-- [ ] Deve ser possível visualizar uma única refeição
+- [x] Deve ser possível visualizar uma única refeição
   - Rota `GET /meals/:id`
-- [ ] Deve ser possível recuperar as métricas de um usuário
+- [x] Deve ser possível recuperar as métricas de um usuário
   - Rota `GET /meals/summary`
   - A métrica terá `{ summary: { meals (number), dietMeals (number), offDietMeals (number), bestDietSequence (number) } }`
-- [ ] O usuário só pode visualizar, editar e apagar as refeições o qual ele criou
+- [x] O usuário só pode visualizar, editar e apagar as refeições o qual ele criou
   - Isso depende da forma como eu decido que a requisição será feita
 
 **Adicional**
@@ -41,8 +41,8 @@ Para deixar a atividade um pouco mais interessante, resolvi adicionar algumas co
 
 ### Não Funcionais
 
-- [ ] Aplicação deve se previnir de ataque via _SQL Injection_
-- [ ] Usuário não pode acessar refeições ou informações sem antes passar por uma autenticação
+- [x] Aplicação deve se previnir de ataque via _SQL Injection_
+- [x] Usuário não pode acessar refeições ou informações sem antes passar por uma autenticação
 
 ## Comandos do Knex
 
