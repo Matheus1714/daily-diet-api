@@ -21,3 +21,7 @@ export async function createUserRepository({
 export async function findUserByEmail(email: string) {
   return await knex("users").where("email", email).select().first();
 }
+
+export async function findUserByCode(code: string) {
+  return await knex("users").where("code", code).first();
+}

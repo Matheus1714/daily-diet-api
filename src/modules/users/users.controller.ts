@@ -2,7 +2,6 @@ import { CreateUserBody, SignInUserBody } from "./users.schema";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { createUserRepository, findUserByEmail } from "./users.repository";
 import bcrypt from "bcrypt";
-import { env } from "../../env";
 
 export async function createUserController(
   req: FastifyRequest<{ Body: CreateUserBody }>,
@@ -20,7 +19,7 @@ export async function createUserController(
 
   try {
     await createUserRepository({ name, email, password });
-    return reply.code(201).send(user);
+    return reply.code(201).send();
   } catch (err) {
     return reply.code(400).send(err);
   }
