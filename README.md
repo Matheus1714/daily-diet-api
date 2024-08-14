@@ -89,7 +89,6 @@ Ref: meals.user_id > users.id
 ```
 
 ![mer](.github/imgs/mer.png)
-Gerado por [dbdiagram.io](https://dbdiagram.io/)
 
 ## Referências
 
