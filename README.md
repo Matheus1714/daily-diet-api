@@ -8,9 +8,9 @@ Esta API tem por objetivo fazer o gerenciamento de dieta de um usuário.
 
 ### Funcionais
 
-- [ ] Deve ser possível criar um usuário
+- [x] Deve ser possível criar um usuário
   - Rota `POST /users` com `nome`, `email` e `senha`
-- [ ] Deve ser possível identificar o usuário entre as requisições
+- [x] Deve ser possível identificar o usuário entre as requisições
   - Ao criar um usuário, é possível realizar a identificação por um cookie `userId` ou um token de acesso
 - [ ] Deve ser possível registrar uma refeição feita, com as seguintes informações:
   - Rota `POST /meals` com `nome`, `descrição`, `data (yyyy-mm-dd)` e `hora (mm:ss)`, no qual o campo `dieta` deve ser opcional, se enviado como `true`, então refeição está dentro da dieta
@@ -33,11 +33,11 @@ Esta API tem por objetivo fazer o gerenciamento de dieta de um usuário.
 
 Para deixar a atividade um pouco mais interessante, resolvi adicionar algumas coisas
 
-- [ ] Autenticação via JWT
+- [x] Autenticação via JWT
   - Irei fazer uma autenticação básica usando JWT
-- [ ] Antes do usuário fazer qualquer operação nas refeições, será necessário fazer o auth em `POST /users/auth`
-- [ ] Depois que o usuário tiver autenticado, será criado um token de acesso (_access\_\_token_) armazenado em um cookie
-- [ ] O logout irá apenas apagar o _access\_\_token_
+- [x] Antes do usuário fazer qualquer operação nas refeições, será necessário fazer o auth em `POST /users/signin`
+- [x] Depois que o usuário tiver autenticado, será criado um token de acesso (_access\_\_token_) armazenado em um cookie
+- [x] O logout irá apenas apagar o _access\_\_token_
 
 ### Não Funcionais
 
