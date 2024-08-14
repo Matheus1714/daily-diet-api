@@ -1,5 +1,4 @@
 {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "git.ignoreLimitWarning": true,
     "editor.formatOnSave": true,
     "[typescript]": {

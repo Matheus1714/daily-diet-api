@@ -1,5 +1,5 @@
 {
-  "name": "diet-api",
+  "name": "daily-diet-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,8 +7,9 @@
     "node": ">=20"
   },
   "scripts": {
-    "dev": "tsx watch src/server.ts",
-    "knex": "node --no-warning --loader tsx ./node_modules/.bin/knex",
+    "dev": "tsx watch src/index.ts",
+    "start": "node build/index.js",
+    "knex": "./node_modules/.bin/knex",
     "lint": "eslint src --ext .ts --fix",
     "build": "tsup src --out-dir build",
     "test": "vitest"
