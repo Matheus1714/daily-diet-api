@@ -59,7 +59,6 @@ Para deixar a atividade um pouco mais interessante, resolvi adicionar algumas co
 ```mermaid
 erDiagram
   users ||--o{ meals : have
-  users }
 ```
 
 **Definição das Entidades em DBML**
