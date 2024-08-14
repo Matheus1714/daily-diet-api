@@ -4,6 +4,15 @@
 
 Esta API tem por objetivo fazer o gerenciamento de dieta de um usuário.
 
+## Tecnologias
+
+- `Node`
+- `Typescript`
+- `Fastify`
+- `Knex`
+- `Swagger`
+- `Vitest`
+
 ## Requisitos
 
 ### Funcionais
@@ -43,6 +52,17 @@ Para deixar a atividade um pouco mais interessante, resolvi adicionar algumas co
 
 - [x] Aplicação deve se previnir de ataque via _SQL Injection_
 - [x] Usuário não pode acessar refeições ou informações sem antes passar por uma autenticação
+
+## Fluxo de Autenticação
+
+Diagrama de sequência, desde a criação do usuário até a geração do token de acesso.
+
+```mermaid
+sequenceDiagram
+Client ->> Server: POST /users [create user]
+Client ->> Server: POST /users/signin [sign in]
+Server -->> Client: return { accessToken }
+```
 
 ## Execução do Projeto
 
@@ -125,7 +145,7 @@ Ref: meals.user_id > users.id
 
 ## Documentação da API
 
-Para acessar a documentação da API, basta
+Para acessar a documentação da API, basta executar o projeto e acessar a rota `/docs`.
 
 ## Referências
 
