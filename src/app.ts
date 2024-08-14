@@ -9,6 +9,7 @@ import fCookie from "@fastify/cookie";
 import { env } from "./env";
 import { verifyAuthenticatedUser } from "./middlewares/verify-authenticated-user";
 import { logFormatedRequest } from "./middlewares/log-formeted-request";
+import { mealsRoute } from "./modules/meals/meals.route";
 
 export const app = fastify();
 
@@ -34,3 +35,4 @@ app.decorate("authenticate", verifyAuthenticatedUser);
 
 // Routes
 app.register(usersRoutes, { prefix: "users" });
+app.register(mealsRoute, { prefix: "meals" });
