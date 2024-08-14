@@ -13,6 +13,8 @@ const envSchema = z.object({
   DATABASE_URL: z.string(),
   PORT: z.coerce.number().default(3000),
   SALT_ROUNDS: z.coerce.number(),
+  AUTH_SECRET: z.string(),
+  COOKIE_SECRET: z.string(),
 });
 
 const _env = envSchema.safeParse(process.env);
