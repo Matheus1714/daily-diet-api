@@ -1,39 +1,85 @@
 @base_url=http://localhost:3000
-@access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFlZjViMzhkLTAyNTktNGQ0ZC04ZDViLTE5NDVmZTA2OTI2MSIsImVtYWlsIjoibWF0aGV1cy5tb3RhQGdtYWlsLmNvbSIsIm5hbWUiOiJNYXRoZXVzIE1vdGEiLCJpYXQiOjE3MjM2MDgzNjV9.l2MWgRvdQTfdNVFMFXJCHlErf_lhNZOPU1uGK7LmoVk
+@access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVhOTY2M2JkLWFlMjMtNGE2Ny05ZTI3LWI0YzM5Mzk5MTM1OCIsImVtYWlsIjoibWF0aGV1cy5tYWdhbGhhZXNAZ21haWwuY29tIiwibmFtZSI6Ik1hdGhldXMgTWFnYWzDtWFlcyIsImlhdCI6MTcyMzY2NjA0OX0.zjj7QxabTAieFLcQnXsIHlocZ1umUnprSg4_rgEhDfg
 
 ###
 
-GET {{base_url}}
-
-###
-
+# @name create-user
 POST {{base_url}}/users
 Content-Type: application/json
 
 {
-    "name": "Matheus Lopes",
-    "email": "matheus.lopes@gmail.com",
+    "name": "Matheus Magalõaes",
+    "email": "matheus.magalhaes@gmail.com",
     "password": "123123"
 }
 
 ###
 
+# @name signin
 POST {{base_url}}/users/signin
 Content-Type: application/json
 
 {
-    "email": "matheus.mota@gmail.com",
+    "email": "matheus.magalhaes@gmail.com",
     "password": "123123"
 }
 
 ###
 
+# @name signout
 DELETE {{base_url}}/users/signout
 Cookie: access_token={{access_token}}
 Content-Type: application/json
 
 ###
 
+# @name get-user
 GET {{base_url}}/users
 Cookie: access_token={{access_token}}
 Content-Type: application/json
+
+
+###
+
+# @name create-meal
+POST {{base_url}}/meals
+Cookie: access_token={{access_token}}
+Content-Type: application/json
+
+{
+    "name": "Janta 3",
+    "description": "Uma refeição essencial",
+    "date": "2024-08-14T14:12",
+    "diet": true
+}
+
+###
+
+# @name update-meal
+PUT {{base_url}}/meals/2
+Cookie: access_token={{access_token}}
+Content-Type: application/json
+
+{
+    "name": "Café"
+}
+
+###
+
+# @name delete-meal
+DELETE {{base_url}}/meals/2
+Cookie: access_token={{access_token}}
+
+###
+
+# @name get-user-meals
+GET {{base_url}}/meals
+Cookie: access_token={{access_token}}
+
+###
+
+# @name get-meal
+GET {{base_url}}/meals/2
+Cookie: access_token={{access_token}}
+
+
