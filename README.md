@@ -88,8 +88,6 @@ Table meals {
 Ref: meals.user_id > users.id
 ```
 
-![mer](.github/imgs/mer.png)
-
 ## Referências
 
 - [Descrição Desafio](https://efficient-sloth-d85.notion.site/Desafio-02-be7cdb37aaf74ba898bc6336427fa410)
