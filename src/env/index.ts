@@ -1,25 +1,26 @@
-import { config } from 'dotenv'
-import { z } from 'zod'
+import { config } from "dotenv";
+import { z } from "zod";
 
-if (process.env.NODE_ENV === 'test') {
-  config({ path: '.env.test' })
+if (process.env.NODE_ENV === "test") {
+  config({ path: ".env.test" });
 } else {
-  config()
+  config();
 }
 
 const envSchema = z.object({
-  NODE_ENV: z.enum(['development', 'test', 'production']).default('production'),
-  DATABASE_CLIENT: z.enum(['sqlite', 'pg']).default('sqlite'),
+  NODE_ENV: z.enum(["development", "test", "production"]).default("production"),
+  DATABASE_CLIENT: z.enum(["sqlite", "pg"]).default("sqlite"),
   DATABASE_URL: z.string(),
   PORT: z.coerce.number().default(3000),
-})
+  SALT_ROUNDS: z.coerce.number(),
+});
 
-const _env = envSchema.safeParse(process.env)
+const _env = envSchema.safeParse(process.env);
 
 if (!_env.success) {
-  console.error('Invalid enviroment variables', _env.error.format())
+  console.error("Invalid enviroment variables", _env.error.format());
 
-  throw new Error('Invalid enviroment variables')
+  throw new Error("Invalid enviroment variables");
 }
 
-export const env = _env.data
+export const env = _env.data;
