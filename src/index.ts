@@ -8,3 +8,5 @@ app
   .then(() => {
     console.info(`HTTP Server Running on port ${env.PORT}`);
   });
+
+app.swagger;

@@ -4,12 +4,14 @@ import fastify, {
   HookHandlerDoneFunction,
 } from "fastify";
 import { usersRoutes } from "./modules/users/users.route";
-import fjwt, { FastifyJWT } from "@fastify/jwt";
+import fjwt from "@fastify/jwt";
 import fCookie from "@fastify/cookie";
 import { env } from "./env";
 import { verifyAuthenticatedUser } from "./middlewares/verify-authenticated-user";
 import { logFormatedRequest } from "./middlewares/log-formeted-request";
 import { mealsRoute } from "./modules/meals/meals.route";
+import fastifySwagger from "@fastify/swagger";
+import fastifySwaggerUi from "@fastify/swagger-ui";
 
 export const app = fastify();
 
@@ -18,6 +20,10 @@ app.register(fjwt, { secret: env.AUTH_SECRET });
 app.register(fCookie, {
   secret: env.COOKIE_SECRET,
   hook: "preHandler",
+});
+app.register(fastifySwagger);
+app.register(fastifySwaggerUi, {
+  routePrefix: "/docs",
 });
 
 // Hooks
