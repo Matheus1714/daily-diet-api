@@ -3,6 +3,7 @@ import {
   createMealController,
   deleteMealController,
   getMealController,
+  getMealSummaryController,
   getUserMealsController,
   updateMealController,
 } from "./meals.controller";
@@ -18,4 +19,5 @@ export async function mealsRoute(app: FastifyInstance) {
   app.delete("/:id", deleteMealController);
   app.get("/", getUserMealsController);
   app.get("/:id", getMealController);
+  app.get("/summary", getMealSummaryController);
 }

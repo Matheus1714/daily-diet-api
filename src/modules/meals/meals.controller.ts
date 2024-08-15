@@ -90,3 +90,30 @@ export async function getMealController(
     return reply.code(400).send(err);
   }
 }
+
+export async function getMealSummaryController(
+  req: FastifyRequest,
+  reply: FastifyReply
+) {
+  try {
+    const meals = await getUserMealsRepository(req.user.id);
+    const dietMeals = meals.filter((meal) => meal.diet);
+
+    const summary = {
+      meals: {
+        total: meals.length,
+        inDiet: dietMeals.length,
+        offDiet: meals.length - dietMeals.length,
+        bestDietSequence: dietMeals.filter((meal) => {
+          const today = new Date();
+          const mealDate = new Date(meal.date);
+          return today == mealDate;
+        }).length,
+      },
+    };
+
+    return reply.code(200).send({ summary });
+  } catch (err) {
+    return reply.code(400).send(err);
+  }
+}

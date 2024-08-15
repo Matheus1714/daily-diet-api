@@ -40,6 +40,7 @@ export async function getUserMealsRepository(userCode: string) {
     user_id: user.code,
     name: meal.name,
     description: meal.description,
+    date: meal.date,
     diet: meal.diet,
     created_at: meal.created_at,
     updated_at: meal.updated_at,
