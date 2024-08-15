@@ -82,4 +82,9 @@ Cookie: access_token={{access_token}}
 GET {{base_url}}/meals/2
 Cookie: access_token={{access_token}}
 
+###
+
+# @name get-meal-summary
+GET {{base_url}}/meals/summary
+Cookie: access_token={{access_token}}
 
